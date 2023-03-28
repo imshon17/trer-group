@@ -1,0 +1,138 @@
+<mvc:View 
+	xmlns:mvc="sap.ui.core.mvc"  
+	xmlns="sap.m"
+	xmlns:f="sap.f" 
+	xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" 
+	height="100%"
+	xmlns:unified="sap.ui.unified"
+	xmlns:tnt="sap.tnt"
+	controllerName="sap.ui.demo.todo.controller.Home" displayBlock="true">
+		<tnt:ToolPage
+		id="app"
+		class="sapUiDemoToolPage">
+		<tnt:header>
+			<tnt:ToolHeader>
+				<Button
+					id="sideNavigationToggleButton"
+					icon="sap-icon://menu2"
+					type="Transparent"
+					press=".onSideNavButtonPress"
+					tooltip="{i18n>collpaseMenuButtonText}">
+					<layoutData>
+						<OverflowToolbarLayoutData priority="NeverOverflow"/>
+					</layoutData>
+				</Button>
+				<ToolbarSpacer/>
+				<Title
+					text="{i18n>appTitle}"
+					level="H2"/>
+				<ToolbarSpacer/>
+				<Button
+					id="errorButton"
+					icon="sap-icon://message-popup"
+					visible="{= ${alerts>/alerts/errors}.length === 0 ? false : true }"
+					type="Transparent"
+					press=".onMessagePopoverPress"
+					tooltip="{i18n>errorButtonTooltip}">
+					<layoutData>
+						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+					</layoutData>
+				</Button>
+				<Button
+					id="notificationButton"
+					icon="sap-icon://ui-notifications"
+					visible="{= ${alerts>/alerts/notifications}.length === 0 ? false : true }"
+					type="Transparent"
+					press=".onNotificationPress"
+					tooltip="{i18n>notificationButtonTooltip}">
+					<layoutData>
+						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+					</layoutData>
+				</Button>
+				<Button
+					id="userButton"
+					text="{modelUser>/name}"
+					type="Transparent"
+					press=".onUserNamePress">
+					<layoutData>
+						<OverflowToolbarLayoutData closeOverflowOnInteraction="false"/>
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+		</tnt:header>
+		<tnt:sideContent>
+			<tnt:SideNavigation
+				expanded="true"
+				selectedKey="{side>/selectedKey}">
+				<tnt:NavigationList>
+					<tnt:NavigationListItem icon="account" text="Prova" />
+					<tnt:NavigationListItem icon="account" text="Prova" />
+					<tnt:NavigationListItem icon="account" text="Prova" />
+				</tnt:NavigationList>
+				<tnt:fixedItem>
+					<tnt:NavigationList>
+						<tnt:NavigationListItem
+							icon="settings" text="Impostazioni" />					
+					</tnt:NavigationList>
+				</tnt:fixedItem>
+			</tnt:SideNavigation>
+		</tnt:sideContent>
+		<tnt:mainContents>
+			<App id="mainContent">
+				<VBox class="sapUiSmallMargin">
+					<PlanningCalendar
+							id="PC1"
+							startDate="{path: 'modelPlanning>/startDate'}"
+							rows="{path: 'modelPlanning>/people'}"
+							appointmentsVisualization="Filled">
+						<toolbarContent>
+							<Title text="Title" titleStyle="H4"/>
+							<Label text="Logged in as" />
+							<Select
+									id="userRole"
+									change=".handleRoleChange"
+									selectedKey="admin"
+									width="230px">
+								<items>
+									<core:Item key="admin" text="Admin" />
+									<core:Item key="manager" text="Manager" />
+									<core:Item key="donna" text="Donna Moore" />
+								</items>
+							</Select>
+						</toolbarContent>
+						<rows>
+							<PlanningCalendarRow
+									icon="{modelPlanning>/pic}"
+									title="{modelPlanning>/name}"
+									text="{modelPlanning>/role}"
+									enableAppointmentsDragAndDrop="{modelPlanning>/name}"
+									enableAppointmentsResize="{modelPlanning>/name}"
+									enableAppointmentsCreate="{modelPlanning>/name}"
+									appointmentDrop=".handleAppointmentDrop"
+									appointmentDragEnter=".handleAppointmentDragEnter"
+									appointmentResize=".handleAppointmentResize"
+									appointmentCreate=".handleAppointmentCreate"
+									appointments="{modelPlanning>/appointments}">
+								<appointments>
+									<unified:CalendarAppointment
+											startDate="{modelPlanning>/people>/start}"
+											endDate="{modelPlanning>/people>/end}"
+											icon="{modelPlanning>/people>/pic}"
+											title="{modelPlanning>/people>/title}"
+											text="{modelPlanning>/people>/info}"
+											type="{modelPlanning>/people>/type}"
+											tentative="{modelPlanning>/people>/tentative}">
+									</unified:CalendarAppointment>
+								</appointments>
+							</PlanningCalendarRow>
+						</rows>
+					</PlanningCalendar>
+				</VBox>
+			</App>
+		</tnt:mainContents>
+	</tnt:ToolPage>
+			
+	
+		
+</mvc:View>
