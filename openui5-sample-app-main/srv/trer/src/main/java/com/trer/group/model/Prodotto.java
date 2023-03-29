@@ -9,16 +9,16 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Utente  {
+public class Prodotto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
-	private String surname;
-	private String email;
-	private String telNumber;
-	private String username;
-	private String password;
-	private String role;
-	public Utente() {}
+	private Integer idProdotto;
+	private String nome;
+	private String descr;
+	private String prezzo;
+	private Integer quantity;
+	private String barCode;
+	private String img;
+
+	public Prodotto(){}
 }

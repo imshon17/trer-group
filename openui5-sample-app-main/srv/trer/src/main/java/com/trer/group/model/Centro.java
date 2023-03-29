@@ -14,7 +14,11 @@ public class Centro {
 	private String address;
 	private String email;
 	private String telephoneNumber;
-	private Integer idDipendente;
+	private String pIva;
+	private Integer idUtente;
+
+	public Centro() {}
+
 
 
 }

@@ -9,16 +9,12 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
-public class Utente  {
+public class Servizio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	private String name;
-	private String surname;
-	private String email;
-	private String telNumber;
-	private String username;
-	private String password;
-	private String role;
-	public Utente() {}
+	private Integer idServizio;
+	private String nome;
+	private String costo;
+	private Integer idUtente;
+	private Double durata;
 }
