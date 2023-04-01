@@ -32,6 +32,10 @@ public class UtenteServiceImplementation implements UtenteService {
 		}
 	}
 
+	/*@Override
+	public List<Utente> getAllDipendenti(String role, Integer idCentro) {
+		return utenteRepo.findByRoleAndIdCentro(role, idCentro);
+	}*/
 
 	@Override
 	public List<Utente> getAll() {

@@ -1,9 +1,6 @@
 package com.trer.group.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,11 +10,18 @@ public class Appuntamento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idAppuntamento;
-	private Integer idUtente;
 	private String dataAppuntamento;
 	private String oraPrenotazione;
-	private Integer idCentro;
-	private Integer idServizio;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idCentro", referencedColumnName = "idCentro")
+	private Centro idCentro;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idServizio", referencedColumnName = "idServizio")
+	private Servizio idServizio;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idUtente", referencedColumnName = "idUtente")
+	private Utente idUtente;
+
 
 	public Appuntamento(){}
 }

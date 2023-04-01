@@ -181,10 +181,6 @@ sap.ui.define([
 			var bSideExpanded = oToolPage.getSideExpanded();
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
-
-
-
-
 		roles: {
 			donna: "Donna Moore",
 			manager: "manager",

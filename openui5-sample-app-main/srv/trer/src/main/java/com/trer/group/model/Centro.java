@@ -15,7 +15,9 @@ public class Centro {
 	private String email;
 	private String telephoneNumber;
 	private String pIva;
-	private Integer idUtente;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idUtente", referencedColumnName = "idUtente")
+	private Utente idUtente;
 
 	public Centro() {}
 
