@@ -5,22 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
+@Table(name = "Ruolo")
 @Entity
-public class Centro {
+public class Ruolo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCentro;
-	private String name;
-	private String address;
-	private String email;
-	private String telephoneNumber;
-	private String pIva;
+	private Integer idRuolo;
+	private String descrizione;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUtente", referencedColumnName = "idUtente")
-	private Utente idUtente;
-
-	public Centro() {}
-
-
-
+	private Utente utente;
 }

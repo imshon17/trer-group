@@ -26,7 +26,7 @@ sap.ui.define([
 				this.getView().setModel(new JSONModel(utente), "modelUser");
 				var oModel = new JSONModel();
 				oModel.setData({
-					startDate: new Date("2017", "10", "13", "8", "0"),
+					startDate: new Date("2017", "11", "13", "9"),
 					people: [
 						{
 							pic: "test-resources/sap/ui/documentation/sdk/images/John_Miller.png",
@@ -181,10 +181,6 @@ sap.ui.define([
 			var bSideExpanded = oToolPage.getSideExpanded();
 			oToolPage.setSideExpanded(!oToolPage.getSideExpanded());
 		},
-
-
-
-
 		roles: {
 			donna: "Donna Moore",
 			manager: "manager",

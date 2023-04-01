@@ -66,9 +66,11 @@
 				expanded="true"
 				selectedKey="{side>/selectedKey}">
 				<tnt:NavigationList>
-					<tnt:NavigationListItem icon="account" text="Prova" />
-					<tnt:NavigationListItem icon="account" text="Prova" />
-					<tnt:NavigationListItem icon="account" text="Prova" />
+					<tnt:NavigationListItem icon="appointment" text="Planning" />
+					<tnt:NavigationListItem icon="collaborate" text="Dipendenti" />
+					<tnt:NavigationListItem icon="family-care" text="Clienti" />
+					<tnt:NavigationListItem icon="product" text="Prodotti" />
+					<tnt:NavigationListItem icon="business-objects-experience" text="Statistiche" />
 				</tnt:NavigationList>
 				<tnt:fixedItem>
 					<tnt:NavigationList>
@@ -85,7 +87,8 @@
 							id="PC1"
 							startDate="{path: 'modelPlanning>/startDate'}"
 							rows="{path: 'modelPlanning>/people'}"
-							appointmentsVisualization="Filled">
+							appointmentsVisualization="Filled"
+							stickyHeader="true">
 						<toolbarContent>
 							<Title text="Title" titleStyle="H4"/>
 							<Label text="Logged in as" />
@@ -103,26 +106,26 @@
 						</toolbarContent>
 						<rows>
 							<PlanningCalendarRow
-									icon="{modelPlanning>/pic}"
-									title="{modelPlanning>/name}"
-									text="{modelPlanning>/role}"
-									enableAppointmentsDragAndDrop="{modelPlanning>/name}"
-									enableAppointmentsResize="{modelPlanning>/name}"
-									enableAppointmentsCreate="{modelPlanning>/name}"
+									icon="{people>pic}"
+									title="{people>name}"
+									text="{people>role}"
+									enableAppointmentsDragAndDrop="{people>name}"
+									enableAppointmentsResize="{people>name}"
+									enableAppointmentsCreate="{people>name}"
 									appointmentDrop=".handleAppointmentDrop"
 									appointmentDragEnter=".handleAppointmentDragEnter"
 									appointmentResize=".handleAppointmentResize"
 									appointmentCreate=".handleAppointmentCreate"
-									appointments="{modelPlanning>/appointments}">
+									appointments="{path: 'people>appointments'}">
 								<appointments>
 									<unified:CalendarAppointment
-											startDate="{modelPlanning>/people>/start}"
-											endDate="{modelPlanning>/people>/end}"
-											icon="{modelPlanning>/people>/pic}"
-											title="{modelPlanning>/people>/title}"
-											text="{modelPlanning>/people>/info}"
-											type="{modelPlanning>/people>/type}"
-											tentative="{modelPlanning>/people>/tentative}">
+											startDate="{appointments>start}"
+											endDate="{appointments>end}"
+											icon="{appointments>pic}"
+											title="{appointments>title}"
+											text="{appointments>info}"
+											type="{appointments>type}"
+											tentative="{appointments>tentative}">
 									</unified:CalendarAppointment>
 								</appointments>
 							</PlanningCalendarRow>

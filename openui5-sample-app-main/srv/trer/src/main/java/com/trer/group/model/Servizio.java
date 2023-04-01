@@ -4,23 +4,18 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Getter @Setter
 @Entity
-public class Centro {
+@Table(name = "Servizio")
+public class Servizio {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCentro;
-	private String name;
-	private String address;
-	private String email;
-	private String telephoneNumber;
-	private String pIva;
+	private Integer idServizio;
+	private String nome;
+	private String costo;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idUtente", referencedColumnName = "idUtente")
-	private Utente idUtente;
-
-	public Centro() {}
-
-
-
+	private Utente utente;
+	private Double durata;
 }
