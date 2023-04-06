@@ -35,10 +35,4 @@ public class UtenteController {
 	public Utente getLogin(@PathVariable String username, @PathVariable String password) {
 		return utenteService.getLoginCheck(username, password);
 	}
-
-
-	/*@GetMapping("/getDipendenti/{role}/{idCentro}")
-	public List<Utente> getAllDipendenti(@PathVariable String role, @PathVariable Integer idCentro) {
-		return utenteService.getAllDipendenti(role, idCentro);
-	}*/
 }

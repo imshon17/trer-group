@@ -8,6 +8,6 @@ public interface UtenteService {
 	public Utente saveUtente(Utente utente);
 	public Utente getUtente(Integer id);
 	public Utente getLoginCheck(String username, String password);
-	//public List<Utente> getAllDipendenti(String role, Integer idCentro);
+
 	public List<Utente> getAll();
 }
