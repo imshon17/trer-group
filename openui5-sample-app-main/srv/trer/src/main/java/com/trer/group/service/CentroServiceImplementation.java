@@ -3,10 +3,11 @@ package com.trer.group.service;
 import com.trer.group.model.Centro;
 import com.trer.group.repository.CentroRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CentroServiceImplementation implements CentroService{
 	@Autowired
 	private CentroRepo centroRepo;

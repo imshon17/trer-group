@@ -3,10 +3,11 @@ package com.trer.group.service;
 import com.trer.group.model.Prodotto;
 import com.trer.group.repository.ProdottoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class ProdottoServiceImplementation implements ProdottoService{
 	@Autowired
 	private ProdottoRepo prodottoRepo;
