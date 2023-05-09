@@ -16,10 +16,7 @@ sap.ui.define([
 			this.getView().setModel(new JSONModel({
 				isMobile: Device.browser.mobile,
 				filterText: undefined
-			}), "view");
-
-
-			
+			}), "view");			
 		},
 
 

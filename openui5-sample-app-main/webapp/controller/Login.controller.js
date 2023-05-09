@@ -27,7 +27,7 @@ sap.ui.define([
 			var utente = await this.callDatabaseMethods("utente/getLogin/" + username + "/" + password, "GET", null);
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			oRouter.navTo("Home", {
-				idUtente: utente.id
+				idUtente: utente.idUtente
 			});
 		},
 

@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface UtenteRepo extends JpaRepository<Utente, Integer> {
 	Utente findByUsernameAndPassword(String username, String password);
-
+	Utente findByUsernameOrEmail(String username, String email);
 }
